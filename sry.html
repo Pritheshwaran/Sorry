@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sorry, My Dearest Vinisha ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffb6c1, #ffe4e1, #e6e6fa);
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Center vertically */
+      text-align: center;
+      overflow: hidden;
+    }
+    .container {
+      max-width: 90%;
+    }
+    .button {
+      padding: 20px 40px;
+      background: linear-gradient(45deg, #ff69b4, #ff8c8c);
+      border: none;
+      border-radius: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #fff;
+      transition: all 0.4s ease;
+      font-family: 'Parisienne', cursive;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .button:hover {
+      background: linear-gradient(45deg, #ff3e6c, #ff6f91);
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+    .message {
+      opacity: 0;
+      max-width: 700px;
+      margin: 20px auto;
+      font-size: 24px;
+      line-height: 1.6;
+      transition: opacity 2s ease, transform 1s ease;
+      font-family: 'Parisienne', cursive;
+      color: #4b0082;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      transform: translateY(20px);
+    }
+    .message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff69b4;
+      transform: rotate(-45deg);
+      animation: float 6s infinite;
+      opacity: 0.7;
+    }
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff69b4;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: 10px;
+      top: 0;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(-45deg);
+        opacity: 0.7;
+      }
+      50% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(-45deg);
+        opacity: 0;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      .button {
+        font-size: 20px;
+        padding: 15px 30px;
+      }
+      .message {
+        font-size: 20px;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="button" id="showMessage">My Sweet Vinisha, Please Click Here 💖</button>
+    <p class="message" id="apologyMessage">
+      My Dearest Vinisha, <br><br>
+      Words cannot express how deeply sorry I am for letting my anger hurt you. My heart aches knowing I caused you pain, and I regret every moment of it. You are my world, my sunshine, and the melody in my heart. Your smile lights up my darkest days, and your love is the most precious gift I could ever ask for. <br><br>
+      I promise to cherish you with every breath, to listen with all my heart, and to be the partner you deserve—patient, kind, and understanding. I never want to see sadness in your beautiful eyes because of me. Please forgive my mistake, my love, and let me make it up to you with all the love and care I have to give. You are my forever, and I’m so grateful for you every single day. ❤️
+    </p>
+  </div>
+
+  <script>
+    const button = document.getElementById('showMessage');
+    const message = document.getElementById('apologyMessage');
+    button.addEventListener('click', () => {
+      message.classList.add('show');
+      button.style.display = 'none';
+      createHearts();
+    });
+
+    function createHearts() {
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.style.animationDelay = `${Math.random() * 5}s`;
+        heart.style.width = `${Math.random() * 20 + 10}px`;
+        heart.style.height = heart.style.width;
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+      }
+    }
+  </script>
+</body>
+</html>
